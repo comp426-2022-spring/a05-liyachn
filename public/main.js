@@ -1,5 +1,5 @@
 // Focus div based on nav button click
-
+//add event listener for each navigation button => display hidden div
 
 
 // Flip one coin and show coin image to match result when button clicked
