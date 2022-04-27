@@ -1,9 +1,9 @@
 // Focus div based on nav button click
 function div(name) { // set active div on click
     var active = Array.from(document.getElementsByClassName("active")) // get collection of active divs
-    for (i in active) { // hide all currently active divs
-        i.setAttribute("class", "hidden")
-    }
+    active.forEach(function (currentdiv) {
+        currentdiv.setAttribute("class", "hidden");
+    })
 
     document.getElementById(name).setAttribute("class", "active") // show clicked div
 }
