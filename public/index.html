@@ -44,39 +44,41 @@
       <!-- A "coin" button -->
 		  <button id="coin" onclick="flipCoin()">Flip?</button>
     <!-- A result paragraph-->
-      <p>Result: <span id="result"></span></p>
+      <p>Result: <span id="flipCoinResult"></span></p>
     <!-- An image of a US quarter (North Carolina variant) -->
-      <img src="./assets/img/coin.png" id="quarter" class="smallcoin">
+      <img src="assets/img/coin.png" id="quarter" class="smallcoin">
     </div>
 
     <div id="multi" class="hidden">
       <h1>Flip many coins</h1>
-      <form id="coins">
-        <label for="number">
+      <form id="coins" onsubmit="flipCoins()">
+        <label for="numberCoins">
           <strong>How many coins?</strong>
         </label>
-        <input type="number" name="number" id="number">
+        <input type="number" name="numberCoins" id="numberCoins">
         <input type="submit" value="Flip 'em!">
       </form>
 
-      <h2>Results</h2>
-        <p id="heads"></p>
-        <p id="tails"></p>
+      <h2>Results Summary</h2>
+        <p id="headsSummary"></p>
+        <p id="tailsSummary"></p>
+
+      <h2>Results Details</h2>
     </div>
 
     <div id="guess" class="hidden">
       <h1>Guess the coin flipped</h1>
-      <form id="guess">
-        <label for="text">
-          <strong>What was the result of the coin flip?</strong>
-        </label>
-        <input type="text" name="guess" id="guess">
-        <input type="submit" value="Guess!">
-      </form>
+      <button id="guessHeads" onclick="guessFlip('heads')">Guess heads</button>
+      <button id="guessTails" onclick="guessFlip('tails')">Guess tails</button>
 
-      <h2>Results</h2>
-        <p id="heads"></p>
-        <p id="tails"></p>
+      <h2>Your guess</h2>
+      <img src="assets/img/coin.png" id="guessImage" class="smallcoin">
+
+      <h2>Actual coin</h2>
+      <img src="assets/img/coin.png" id="actualImage" class="smallcoin">
+
+      <h2>Result</h2>
+      <p id="guessResult"></p>
     </div>
 
   </body>
