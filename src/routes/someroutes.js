@@ -72,8 +72,12 @@ app.post('/app/user/new/', (req, res, next) => {
     // create access log => access.log
 })
 
-app.post('/app/user/update/', (req, res, next) => {
+app.patch('/app/user/update/', (req, res, next) => {
     // update access log => access.log
+})
+
+app.delete('/app/user/delete/', (req, res, next) => {
+    // delete from access log => access.log
 })
 
 app.use(function(req, res) { // error if endpoint not found
