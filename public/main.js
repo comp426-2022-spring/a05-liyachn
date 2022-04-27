@@ -10,8 +10,6 @@ function div(name) { // set active div on click
 
 
 // Flip one coin and show coin image to match result when button clicked
-const coin = document.getElementById("coin") // Add event listener for coin button
-coin.addEventListener("click", flipCoin)
 function flipCoin() {
     fetch('http://localhost:5000/app/flip/', {mode: 'cors'})
     .then(function(response) {
@@ -20,7 +18,7 @@ function flipCoin() {
     .then(function(result) {
         console.log(result);
         document.getElementById("result").innerHTML = result.flip; // change result text
-        document.getElementById("quarter").setAttribute("src", result.flip+".jpg"); // change image
+        document.getElementById("quarter").setAttribute("src", "./assets/img/"+result.flip+".jpg"); // change image
         coin.disabled = true
     })
 }
