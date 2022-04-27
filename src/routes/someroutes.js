@@ -26,13 +26,13 @@ if (args.log == true) // create file, write access log to it in combined format
     app.use(morgan('combined', { stream: logstream }))
 }
 
-app.get('/app/flip/', (req, res) => { // returns results of random coin flip
+app.get('/app/flip/', (req, res, next) => { // returns results of random coin flip
     res.status(200).json({ 'flip' : coinFlip() }) // add 'flip' key => becomes json
     res.type("text/plain")
 })
 
-app.get('/app/flips/:number/', (req, res) => { // returns json array of raw random flips + summary
-    const raw = coinFlips(req.params.number)
+app.get('/app/flips/:number/', (req, res, next) => { // returns json array of raw random flips + summary
+    const raw = coinFlips(req.body.number)
     res.status(200).json({ 'raw' : raw, 'summary' : countFlips(raw)})
     res.type("text/plain")
 })
