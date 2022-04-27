@@ -18,7 +18,7 @@ function flipCoin() {
     .then(function(result) {
         console.log(result);
         document.getElementById("result").innerHTML = result.flip; // change result text
-        document.getElementById("quarter").setAttribute("src", "./assets/img/"+result.flip+".jpg"); // change image
+        document.getElementById("quarter").setAttribute("src", "./assets/img/"+result.flip+".png"); // change image
         coin.disabled = true
     })
 }
