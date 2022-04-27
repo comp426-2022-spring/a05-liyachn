@@ -72,6 +72,10 @@ app.post('/app/user/new/', (req, res, next) => {
     // create access log => access.log
 })
 
+app.post('/app/user/update/', (req, res, next) => {
+    // update access log => access.log
+})
+
 app.use(function(req, res) { // error if endpoint not found
     res.status(404).send("404 NOT FOUND")
     res.type("text/plain")
