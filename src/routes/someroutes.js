@@ -1,3 +1,5 @@
+const { restart } = require("nodemon");
+
 // Route (endpoint) definitions go in this directory
 app.get('/app/', (req, res) => { // root endpoint
     res.status(200).end('200 OK') // 200 = success
@@ -56,6 +58,14 @@ app.post('/app/flip/coins/', (req, res, next) => {
 app.post('/app/flip/call/', (req, res, next) => {
     const game = flipACoin(req.body.guess)
     res.status(200).json(game)
+})
+
+app.get('/app/log/error/', (req, res) => {
+    //create error log => error.log
+})
+
+app.post('/app/user/login/', (req, res, next) => {
+    // create access log => access.log
 })
 
 app.use(function(req, res) { // error if endpoint not found
