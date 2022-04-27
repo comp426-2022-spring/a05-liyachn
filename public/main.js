@@ -50,5 +50,15 @@ function flipCoins() {
 
 // Guess a flip by clicking either heads or tails button
 function guessFlip(guess) {
-    
+    fetch('http://localhost:5000/app/flip/call')
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(result) {
+        console.log(result);
+
+        document.getElementById("guessImage").setAttribute("src", "./assets/img/"+result.call+".png"); // change image
+        document.getElementById("actualImage").setAttribute("src", "./assets/img/"+result.flip+".png");
+        document.getElementById("guessResult").innerHTML = result.result; // change result text
+    })
 }
