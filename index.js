@@ -4,10 +4,9 @@ const express = require('express') //call dependency - ES module
 const app = express()
 app.use(express.json()) // allow json body messages on all endpoints
 app.use(express.urlencoded({extended: true})) // pass message as url
+app.use(express.static('./public')) // Serve static HTML files
 
 const minimist = require('minimist') // Require minimist module (make sure you install this one via npm).
-const database = require('better-sqlite3')
-const logdb = new database('log.db')
 const args = minimist(process.argv.slice(2)) // splits, takes last input
 args['port', 'debug', 'log', 'help'] // Define allowed argument names
 

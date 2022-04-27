@@ -1,4 +1,6 @@
 // Middleware function definitions go here
+import {logdb} from "./src/services/database"
+
 app.use( (req, res, next) => { // middleware function inserting new record in database
     let logdata = {
         remoteaddr: req.ip,
@@ -12,7 +14,7 @@ app.use( (req, res, next) => { // middleware function inserting new record in da
         referer: req.headers['referer'],
         useragent: req.headers['user-agent']
     }
-    const stmt = logdb.prepare('INSERT INTO accesslog (remoteaddr, remoteuser, time, method, url, protocol, httpversion, status, referer, useragent) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')
+    const stmt = logdb.prepare('INSERT INTO access.log (remoteaddr, remoteuser, time, method, url, protocol, httpversion, status, referer, useragent) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')
     stmt.run(logdata.remoteaddr, logdata.remoteuser, logdata.time, logdata.method, logdata.url, logdata.protocol, logdata.httpversion, logdata.status, logdata.referer, logdata.useragent)
     next()
 })
